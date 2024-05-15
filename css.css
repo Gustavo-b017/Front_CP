@@ -13,8 +13,8 @@
   width: 90%;
   max-height: 50rem;
   overflow: auto;
-  background-color: #eaeaea;
-  padding: 3vh;
+  background-color: white;
+  padding: 0vh;
   margin: 10px auto;
   border-radius: 5px;
 }
