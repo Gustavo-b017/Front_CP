@@ -8,44 +8,53 @@
     <script src="https://cdn.tailwindcss.com"></script>
    
 </head>
-<body class="bg-slate-200 ">
-
-
-    <div class="max-w-md bg-slate-300 mx-auto  max-h-96 rounded-xl border-3 ">
-        <div class="text-center">
+<body class="bg-slate-900">
+    <div class="flex justify-center">
+        <img class="w-24" src="./logochat.png" alt="">
+        <h1 class=" text-5xl mt-5 text-emerald-400">ChatGPT </h1>
+    </div>
+    
+    <div   class="max-w-5xl  mx-auto mt-32 h-160 rounded-xl border-3">
+       
+        <div  class="text-center bg-slate-900">
             
-            <h1 class="text-5xl">ChatGPT API</h1>
+         
 
             <div id="chat-log">
                 
                 <div class="message message--received">
                     <div class="flex-chat">
                         <img src="./ChatGPT_logo.svg.png" alt="">
-                        <div class="message__text">Ola, em que posso te ajudar hoje?</div>
+                        <div class="message__text text-white bg-teal-500 py-5 px-8 rounded-xl border-9">Ola, em que posso te ajudar hoje?</div>
                     </div>
                 </div>
 
                 <div class="message message--sent">
                     <div class="flex-chat">
-                        <div class="message__text">hello world</div>
-                        <img src="./WhatsApp Image 2024-05-15 at 11.30.21.jpeg" alt="">
+                        <div class="message__text text-black bg-slate-300 py-4 px-6  rounded-xl border-9">Hello world</div>
+                        <img src="./usuario-de-perfil.png" alt="">
                     </div>
                 </div>
 
                 <div class="message message--received">
                     <div class="flex-chat">
                         <img src="./ChatGPT_logo.svg.png" alt="">
-                        <div class="message__text">hello, i'am the future</div>
+                        <div class="message__text text-white bg-teal-500 py-5 px-8 rounded-xl border-9">Hello, i'am the future</div>
                     </div>
                 </div>
 
             </div>
     
-            <form class="bg-slate-400 py-2  rounded-xl px-auto">
+            <form class="bg-slate-900 py-2  rounded-xl px-auto">
                 <div class="input-group">
-                    <input type="text" class="border-1  text-black p-2  bg-neutral-300 w-4/5 rounded-xl" placeholder="Sua mensagem..." id="message"/>
-
-                    <button class="border-1 rounded-xl  bg-neutral-300 text-green-950 p-2 "> enviar</button>
+                    <div class="flex justify-center gap-2">
+                        <input type="text" class="  rounded-xl border-r-6   text-black p-2  bg-neutral-300 w-4/5 rounded-xl" placeholder="Sua mensagem..." id="message"/>
+                        <button class=" ">
+                            <a href="">
+                                <img class="w-[60px] pointer" src="./setaverde.png" alt="">
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </form>
             
@@ -79,8 +88,8 @@
             messageElementDiv.classList.add('message--sent')
             messageElementDiv.innerHTML = `
                 <div class="flex-chat">
-                    <div class="message__text"> ${messageText} </div>
-                    <img src="./WhatsApp Image 2024-05-15 at 11.30.21.jpeg" alt="">
+                    <div class="message__text text-black bg-slate-300 py-4 px-6 rounded-xl border-9"> ${messageText} </div>
+                    <img src="./usuario-de-perfil.png" alt="">
                 </div>
             `;
 
