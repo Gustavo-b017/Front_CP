@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    //  border: 1px solid red; 
+}
+
+@mixin flex-center ($jc: center, $ai: center){
+    display: flex;
+
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+.main-section {
+    height: 100vh;
+}
+
+#chat-log {
+    width: 90%;
+    max-height: 18rem;
+    overflow: auto;
+    background-color: #eaeaea;
+    padding: 3vh;
+    margin: 10px auto;
+    border-radius: 5px;
+
+    .message--sent {
+        text-align: right;
+        color: #8b003a;
+
+        img {
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            margin-left: 10px ;
+        }
+        .flex-chat{
+            @include flex-center(flex-end, center);
+        }
+
+        &::before {
+            content: 'usuario';
+            font-size: 12px;
+            color: #8b003a;
+        }
+    }
+    
+    .message--received {
+        text-align: left;
+        margin-top: 20px;
+        max-width: 12rem;
+        display: flex;
+        flex-direction: column;
+        
+        .flex-chat{
+            @include flex-center(flex-start, center);
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin-right: 10px;
+        }
+
+        &::before {
+            content: 'assistente (API)';
+            font-size: 12px;
+            
+        }
+    }
+}
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+</head>
+<body class="bg-slate-200 ">
+
+
+    <div class="max-w-md bg-slate-300 mx-auto  max-h-96 rounded-xl border-3 ">
+        <div class="text-center">
+            
+            <h1 class="text-5xl">ChatGPT API</h1>
+
+            <div id="chat-log">
+                
+                <div class="message message--received">
+                    <div class="flex-chat">
+                        <img src="./ChatGPT_logo.svg.png" alt="">
+                        <div class="message__text">Ola, em que posso te ajudar hoje?</div>
+                    </div>
+                </div>
+
+                <div class="message message--sent">
+                    <div class="flex-chat">
+                        <div class="message__text">hello world</div>
+                        <img src="./WhatsApp Image 2024-05-15 at 11.30.21.jpeg" alt="">
+                    </div>
+                </div>
+
+                <div class="message message--received">
+                    <div class="flex-chat">
+                        <img src="./ChatGPT_logo.svg.png" alt="">
+                        <div class="message__text">hello, i'am the future</div>
+                    </div>
+                </div>
+
+            </div>
+    
+            <form class="bg-slate-400 py-2  rounded-xl px-auto">
+                <div class="input-group">
+                    <input type="text" class="border-1  text-black p-2  bg-neutral-300 w-4/5 rounded-xl" placeholder="Sua mensagem..." id="message"/>
+
+                    <button class="border-1 rounded-xl  bg-neutral-300 text-green-950 p-2 "> enviar</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+
+        let messages = []
+
+        const form = document.querySelector('form')
+        const message = document.querySelector('#message')
+        const chatLog = document.querySelector('#chat-log')
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // faz com que o formulario n recarregue a pagina
+
+            const messageText = message.value;
+
+            const newMessageAPI = {'role': 'user', 'content': `${messageText}` }
+
+            messages.push(newMessageAPI);
+
+            message.value = '';
+
+            console.log(messages)
+
+            const messageElementDiv = document.createElement('div');
+
+            messageElementDiv.classList.add('message');
+            messageElementDiv.classList.add('message--sent')
+            messageElementDiv.innerHTML = `
+                <div class="flex-chat">
+                    <div class="message__text"> ${messageText} </div>
+                    <img src="./WhatsApp Image 2024-05-15 at 11.30.21.jpeg" alt="">
+                </div>
+            `;
+
+            chatLog.appendChild(messageElementDiv)
+        
+            fetch('htts://localhost:3000/sendMessage/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    messages
+                })
+            })
+        });
+
+        
+
+    </script>
+</body>
+</html>
