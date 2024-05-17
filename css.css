@@ -4,17 +4,16 @@
   box-sizing: border-box;
 }
 
-
 .main-section {
   height: 100vh;
 }
 
 #chat-log {
   width: 90%;
-  max-height: 50rem;
+  max-height: 18rem;
   overflow: auto;
-  background-color: white;
-  padding: 0vh;
+  background-color: #eaeaea;
+  padding: 3vh;
   margin: 10px auto;
   border-radius: 5px;
 }
@@ -42,7 +41,7 @@
 #chat-log .message--received {
   text-align: left;
   margin-top: 20px;
-  max-width: 12rem;
+  max-width: 20rem;
   display: flex;
   flex-direction: column;
 }
