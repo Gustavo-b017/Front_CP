@@ -8,9 +8,13 @@
   height: 100vh;
 }
 
+.teste2 {
+  height: 80vh;
+}
+
 #chat-log {
   width: 90%;
-  max-height: 18rem;
+  max-height: 83%;
   overflow: auto;
   background-color: #eaeaea;
   padding: 3vh;
